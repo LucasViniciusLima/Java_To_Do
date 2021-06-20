@@ -1,0 +1,14 @@
+<div class="place-info-box">
+  <div class="place-info-box-content">
+    <span class="place-info-box-detail">{{ item.category }}</span>
+    <span class="place-info-box-icon" style="width: 100%"><img [src]="item.image" /></span>
+    <a *ngIf="isUsuarioLogado()" (click)="incluirItemNoCarrinho()" href="javascript:void(0);" style="float: left">
+      Incluir no carrinho</a>
+    <span class="valor-item">{{ item.vlrVenda | currency:'BRL':true }}</span>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+      <p class="descricao-produto">{{ item.name }}</p>
+    </div>
+  </div>
+</div>

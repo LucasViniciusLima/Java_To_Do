@@ -1,0 +1,128 @@
+<div class="box box-solid border-login">
+    <br />
+    <div class="box-header text-center">
+        <div class="clearfix"></div>
+        <i class="fa fa-user"></i>
+        <h3 class="box-title">Cadastro</h3>
+    </div>
+    <div class="box-body">
+        <form name="loginForm">
+
+            <h4 class="box-title">Informações de Acesso</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="usuario.email">Email:*</label>
+                        <input type="email" name="usuario.email" [(ngModel)]="usuario.email" maxlength="120"
+                            class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="usuario.senha">Senha:*</label>
+                        <input type="password" name="usuario.senha" [(ngModel)]="usuario.senha" maxlength="10"
+                            class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="box-title">Informações Pessoais</h4>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="usuario.nome">Nome:*</label>
+                        <input type="text" name="usuario.nome" [(ngModel)]="usuario.nome" maxlength="120"
+                            class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usuario.dataNascimento">Data de Nascimento:*</label>
+                        <input type="date" name="usuario.dataNascimento" [(ngModel)]="usuario.dataNascimento"
+                            maxlength="120" class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usuario.sexo">Sexo:*</label>
+                        <select id="usuario.sexo" name="usuario.sexo" [(ngModel)]="usuario.sexo" class="form-control">
+                            <option selected [ngValue]="undefined"></option>
+                            <option [ngValue]="'M'">Masculino</option>
+                            <option [ngValue]="'F'">Feminino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usuario.telefone">Telefone:*</label>
+                        <input type="text" name="usuario.telefone" [(ngModel)]="usuario.telefone" maxlength="120"
+                            class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usuario.cpf">CPF:*</label>
+                        <input type="text" name="usuario.cpf" [(ngModel)]="usuario.cpf" maxlength="120"
+                            class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+
+            <h4 class="box-title">Informações para o envio de mercadorias</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usuario.rua">Rua:*</label>
+                        <input type="text" name="usuario.rua" [(ngModel)]="usuario.rua" maxlength="120"
+                            class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usuario.numero">Número:*</label>
+                        <input type="number" name="usuario.numero" [(ngModel)]="usuario.numero" maxlength="120"
+                            class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usuario.bairro">Bairro:*</label>
+                        <input type="text" name="usuario.bairro" [(ngModel)]="usuario.bairro" maxlength="120"
+                            class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usuario.cidade">Cidade:*</label>
+                        <input type="text" name="usuario.cidade" [(ngModel)]="usuario.cidade" maxlength="120"
+                            class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usuario.estado">Estado:*</label>
+                        <input type="text" name="usuario.estado" [(ngModel)]="usuario.estado" maxlength="120"
+                            class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="usuario.cep">CEP:*</label>
+                        <input type="text" name="usuario.cep" [(ngModel)]="usuario.cep" maxlength="120"
+                            class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                <button [disabled]="loading" (click)="salvar()" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

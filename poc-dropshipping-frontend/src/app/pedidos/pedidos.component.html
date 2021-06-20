@@ -1,0 +1,31 @@
+<div class="box box-solid">
+    <div class="box-header">
+        <i class="fa fa-shopping-cart"></i>
+        <h3 class="box-title">Pedidos</h3>
+    </div>
+
+    <div *ngIf="!pedidos.length" class="box-body">
+        <p>Nenhum pedido foi encontrado.</p>
+    </div>
+
+    <div *ngIf="pedidos.length" class="box-body">
+        <div class="col-xs-12 table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">Data</th>
+                        <th>Código</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of pedidos">
+                        <td class="text-center"></td>
+                        <td>{{item?.codigo}}</td>
+                        <td>{{item?.total | currency:'BRL': true}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

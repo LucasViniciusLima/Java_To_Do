@@ -1,0 +1,105 @@
+<div class="box box-solid">
+  <div class="box-header">
+    <i class="fa fa-shopping-cart"></i>
+    <h3 class="box-title">Carrinho</h3>
+  </div>
+
+  <div *ngIf="!carrinho.length" class="box-body">
+    <p>Seu carrinho esta vazio</p>
+  </div>
+
+  <div *ngIf="carrinho.length" class="box-body">
+    <div class="col-xs-12 table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="text-center">Quantidade</th>
+            <th>Produto</th>
+            <th>Valor</th>
+            <th class="text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of carrinho">
+            <td class="text-center">{{item?.quantidade}}</td>
+            <td>{{item?.produto.name}}</td>
+            <td>{{item?.produto.vlrVenda | currency:'BRL': true}}</td>
+            <th class="text-center">
+              <a href="javascript:void(0);" (click)="removerItem(item.id)" class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+              </a>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="carrinho.length" class="box-body">
+    <section class="content">
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12">
+          <section class="invoice">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <p class="lead">Formas de Pagamento:</p>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Boleto:</th>
+                    <td class="text-right">
+                      <input id="pgto" type="radio" value="BOLETO" checked name="periodo" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Cartão de Débito:</th>
+                    <td class="text-right">
+                      <input id="pgto" type="radio" value="CARD" name="periodo" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12">
+          <section class="invoice">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <p class="lead">Frete e Total:</p>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>ITENS NO CARRINHO:</th>
+                    <td class="text-right">{{ totalCarrinho | currency:'BRL': true }}</td>
+                  </tr>
+                  <tr>
+                    <th>FRETE:</th>
+                    <td class="text-right">{{ frete | currency:'BRL': true }}</td>
+                  </tr>
+                  <tr>
+                    <th>TOTAL:</th>
+                    <td class="text-right">{{ (totalCarrinho + frete) | currency:'BRL': true }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div *ngIf="carrinho.length" class="box-body">
+    <div class="row">
+      <div class="col-xs-12">
+        <a href="javascript:void(0);" (click)="concluirPedido()" class="btn btn-success pull-right">
+          <i class="fa fa-credit-card"></i> Concluir Pedido
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

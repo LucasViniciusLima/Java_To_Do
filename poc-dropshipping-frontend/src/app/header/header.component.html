@@ -1,0 +1,41 @@
+<header class="main-header">
+  <nav class="navbar navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="javascript:void(0);" class="navbar-brand"><b>Ds-PUC</b></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li routerLinkActive="active">
+            <a [routerLink]="['catalogo']">Loja</a>
+          </li>
+          <li *ngIf="isUsuarioLogado()" routerLinkActive="active">
+            <a [routerLink]="['carrinho']">Meu Carrinho</a>
+          </li>
+          <li *ngIf="isUsuarioLogado()" routerLinkActive="active">
+            <a [routerLink]="['pedidos']">Meus Pedidos</a>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse pull-right" id="navbar-logged">
+        <ul class="nav navbar-nav">
+          <li *ngIf="!isUsuarioLogado()" routerLinkActive="active">
+            <a href="javascript:void(0);" [routerLink]="['login']">Login</a>
+          </li>
+          <li *ngIf="isUsuarioLogado()" routerLinkActive="active">
+            <a href="javascript:void(0);" (click)="logout()">Sair</a>
+          </li>
+          <li *ngIf="!isUsuarioLogado()" routerLinkActive="active">
+            <a href="javascript:void(0);" [routerLink]="['cadastro']">Primeiro Acesso</a>
+          </li>
+          <li routerLinkActive="active">
+            <a href="javascript:void(0);" [routerLink]="['sobre']">Sobre</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
